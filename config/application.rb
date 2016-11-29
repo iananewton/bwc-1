@@ -6,32 +6,32 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-config.assets.initialize_on_precompile = false
 
-module OdataTest
-  class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-    class Foo
-      attr_reader :foo, :bar, :baz
 
-      def initialize(foo, bar, baz)
-        @foo = foo
-        @bar = bar
-        @baz = baz
-      end
-    end
-    config.to_prepare do
-      # inmem = OData::InMemorySchema::Base.new("InMem", classes: Foo)
-      # OData::Edm::DataServices.schemas << inmem
-      # (1..20).each do |n|
-      #   inmem.find_entity_type("Foo").entities.append(Foo.new(n, "test", "test #{n}"))
-      # end
-      OData::Edm::DataServices.schemas << OData::ActiveRecordSchema::Base.new
-    end
-  end
-end
+# module OdataTest
+#   class Application < Rails::Application
+#     # Settings in config/environments/* take precedence over those specified here.
+#     # Application configuration should go into files in config/initializers
+#     # -- all .rb files in that directory are automatically loaded.
+#     class Foo
+#       attr_reader :foo, :bar, :baz
+#
+#       def initialize(foo, bar, baz)
+#         @foo = foo
+#         @bar = bar
+#         @baz = baz
+#       end
+#     end
+#     config.to_prepare do
+#       # inmem = OData::InMemorySchema::Base.new("InMem", classes: Foo)
+#       # OData::Edm::DataServices.schemas << inmem
+#       # (1..20).each do |n|
+#       #   inmem.find_entity_type("Foo").entities.append(Foo.new(n, "test", "test #{n}"))
+#       # end
+#       OData::Edm::DataServices.schemas << OData::ActiveRecordSchema::Base.new
+#     end
+#   end
+# end
 
 module Bwc
   class Application < Rails::Application
