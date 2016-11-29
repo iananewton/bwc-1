@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  MDType: 1
+  MDSubtypeName: MyText
+  SpiritClass: 1
+  UPC: 1
+
+two:
+  MDType: 1
+  MDSubtypeName: MyText
+  SpiritClass: 1
+  UPC: 1

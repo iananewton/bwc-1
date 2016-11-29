@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vesseltype:</strong>
+  <%= @vessel.VesselType %>
+</p>
+
+<p>
+  <strong>Vesselname:</strong>
+  <%= @vessel.VesselName %>
+</p>
+
+<p>
+  <strong>Receivedondate:</strong>
+  <%= @vessel.ReceivedOnDate %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @vessel.Capacity %>
+</p>
+
+<p>
+  <strong>New:</strong>
+  <%= @vessel.New %>
+</p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @vessel.Material %>
+</p>
+
+<p>
+  <strong>Retired:</strong>
+  <%= @vessel.Retired %>
+</p>
+
+<%= link_to 'Edit', edit_vessel_path(@vessel) %> |
+<%= link_to 'Back', vessels_path %>

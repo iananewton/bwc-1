@@ -1,0 +1,2 @@
+json.extract! transaction, :id, :TRDateTime, :TrUser, :DepositID, :WithdrawalID, :PostingDate, :AppProof, :Temp, :ActProof, :Weight, :PG, :Gallons, :Bottles, :created_at, :updated_at
+json.url transaction_url(transaction, format: :json)

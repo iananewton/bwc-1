@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Masterdataid:</strong>
+  <%= @input.MasterDataID %>
+</p>
+
+<p>
+  <strong>Inputitem:</strong>
+  <%= @input.InputItem %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @input.Quantity %>
+</p>
+
+<%= link_to 'Edit', edit_input_path(@input) %> |
+<%= link_to 'Back', inputs_path %>

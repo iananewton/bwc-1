@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mdtype:</strong>
+  <%= @master_data_subtype.MDType %>
+</p>
+
+<p>
+  <strong>Mdsubtypename:</strong>
+  <%= @master_data_subtype.MDSubtypeName %>
+</p>
+
+<p>
+  <strong>Spiritclass:</strong>
+  <%= @master_data_subtype.SpiritClass %>
+</p>
+
+<p>
+  <strong>Upc:</strong>
+  <%= @master_data_subtype.UPC %>
+</p>
+
+<%= link_to 'Edit', edit_master_data_subtype_path(@master_data_subtype) %> |
+<%= link_to 'Back', master_data_subtypes_path %>

@@ -1,0 +1,1 @@
+json.array! @log_record_types, partial: 'log_record_types/log_record_type', as: :log_record_type

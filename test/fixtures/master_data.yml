@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  MDDateTime: 2016-11-28 12:14:14
+  ReferenceID: MyString
+  MDType: 1
+  MDSubtype: 1
+  Vessel: 1
+  ClearingStatus: 1
+  ClearingDateTime: 2016-11-28 12:14:14
+
+two:
+  MDDateTime: 2016-11-28 12:14:14
+  ReferenceID: MyString
+  MDType: 1
+  MDSubtype: 1
+  Vessel: 1
+  ClearingStatus: 1
+  ClearingDateTime: 2016-11-28 12:14:14

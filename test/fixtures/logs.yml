@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  MasterDataID: 1
+  LogType: 1
+  LDateTime: 2016-11-28 14:25:43
+  LpH: 1.5
+  LTemp: 1.5
+  LGravity: 1.5
+  LBrix: 1.5
+  LAppProof: 1.5
+  LActProof: 1.5
+  LWeight: 1.5
+  LPG: 1.5
+  LGallons: 1.5
+
+two:
+  MasterDataID: 1
+  LogType: 1
+  LDateTime: 2016-11-28 14:25:43
+  LpH: 1.5
+  LTemp: 1.5
+  LGravity: 1.5
+  LBrix: 1.5
+  LAppProof: 1.5
+  LActProof: 1.5
+  LWeight: 1.5
+  LPG: 1.5
+  LGallons: 1.5

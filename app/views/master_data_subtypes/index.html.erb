@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Master Data Subtypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mdtype</th>
+      <th>Mdsubtypename</th>
+      <th>Spiritclass</th>
+      <th>Upc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @master_data_subtypes.each do |master_data_subtype| %>
+      <tr>
+        <td><%= master_data_subtype.MDType %></td>
+        <td><%= master_data_subtype.MDSubtypeName %></td>
+        <td><%= master_data_subtype.SpiritClass %></td>
+        <td><%= master_data_subtype.UPC %></td>
+        <td><%= link_to 'Show', master_data_subtype %></td>
+        <td><%= link_to 'Edit', edit_master_data_subtype_path(master_data_subtype) %></td>
+        <td><%= link_to 'Destroy', master_data_subtype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Master data subtype', new_master_data_subtype_path %>

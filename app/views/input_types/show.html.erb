@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mdtype:</strong>
+  <%= @input_type.MDType %>
+</p>
+
+<p>
+  <strong>Inputtypedescription:</strong>
+  <%= @input_type.InputTypeDescription %>
+</p>
+
+<%= link_to 'Edit', edit_input_type_path(@input_type) %> |
+<%= link_to 'Back', input_types_path %>

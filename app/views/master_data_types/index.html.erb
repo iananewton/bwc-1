@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Master Data Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mdtypename</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @master_data_types.each do |master_data_type| %>
+      <tr>
+        <td><%= master_data_type.MDTypeName %></td>
+        <td><%= link_to 'Show', master_data_type %></td>
+        <td><%= link_to 'Edit', edit_master_data_type_path(master_data_type) %></td>
+        <td><%= link_to 'Destroy', master_data_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Master data type', new_master_data_type_path %>

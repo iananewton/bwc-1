@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  TRDateTime: 2016-11-28 14:27:07
+  TrUser: MyText
+  DepositID: 1
+  WithdrawalID: 1
+  PostingDate: 2016-11-28 14:27:07
+  AppProof: 1.5
+  Temp: 1.5
+  ActProof: 1.5
+  Weight: 1.5
+  PG: 1.5
+  Gallons: 1.5
+  Bottles: 1.5
+
+two:
+  TRDateTime: 2016-11-28 14:27:07
+  TrUser: MyText
+  DepositID: 1
+  WithdrawalID: 1
+  PostingDate: 2016-11-28 14:27:07
+  AppProof: 1.5
+  Temp: 1.5
+  ActProof: 1.5
+  Weight: 1.5
+  PG: 1.5
+  Gallons: 1.5
+  Bottles: 1.5

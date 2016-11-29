@@ -1,0 +1,1 @@
+json.array! @input_items, partial: 'input_items/input_item', as: :input_item

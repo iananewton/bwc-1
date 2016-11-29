@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mddatetime:</strong>
+  <%= @master_datum.MDDateTime %>
+</p>
+
+<p>
+  <strong>Referenceid:</strong>
+  <%= @master_datum.ReferenceID %>
+</p>
+
+<p>
+  <strong>Mdtype:</strong>
+  <%= @master_datum.MDType %>
+</p>
+
+<p>
+  <strong>Mdsubtype:</strong>
+  <%= @master_datum.MDSubtype %>
+</p>
+
+<p>
+  <strong>Vessel:</strong>
+  <%= @master_datum.Vessel %>
+</p>
+
+<p>
+  <strong>Clearingstatus:</strong>
+  <%= @master_datum.ClearingStatus %>
+</p>
+
+<p>
+  <strong>Clearingdatetime:</strong>
+  <%= @master_datum.ClearingDateTime %>
+</p>
+
+<%= link_to 'Edit', edit_master_datum_path(@master_datum) %> |
+<%= link_to 'Back', master_data_path %>

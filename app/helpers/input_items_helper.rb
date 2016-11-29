@@ -1,0 +1,2 @@
+module InputItemsHelper
+end
