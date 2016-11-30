@@ -244,10 +244,10 @@ INSERT INTO "spirit_classes" ("id", "ClassName","created_at","updated_at") VALUE
 -- Dumping data for table "Transactions"
 --
 
-INSERT INTO "transactions" ("id", "TrDateTime", "TrUser", "DepositID", "WithdrawalID", "PostingDate", "AppProof", "Temp", "ActProof", "Weight", "PG", "Gallons", "Bottles","created_at","updated_at") VALUES
-(3, '2016-11-01 00:00:00', NULL, 5, 6, NULL, NULL, NULL, NULL, NULL, '10.00', NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01'),
-(4, '2016-11-02 00:00:00', NULL, 5, 6, NULL, NULL, NULL, NULL, NULL, '8.00', NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01'),
-(5, '2016-11-03 00:00:00', NULL, 6, 5, NULL, NULL, NULL, NULL, NULL, '14.00', NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01');
+INSERT INTO "transactions" ("id", "TrUser", "DepositID", "WithdrawalID", "PostingDate", "AppProof", "Temp", "ActProof", "Weight", "PG", "Gallons", "Bottles","created_at","updated_at") VALUES
+(3, NULL, 5, 6, NULL, NULL, NULL, NULL, NULL, '10.00', NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01'),
+(4, NULL, 5, 6, NULL, NULL, NULL, NULL, NULL, '8.00', NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01'),
+(5, NULL, 6, 5, NULL, NULL, NULL, NULL, NULL, '14.00', NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01');
 
 -- --------------------------------------------------------
 
