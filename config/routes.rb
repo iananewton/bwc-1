@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   resources :input_items
   resources :master_data
 
-  post '/MasterData', to: 'master_data#create', :defaults => { :format => :json }
-  patch "MasterData(*other)" => "master_data#update", :defaults => { :format => :json}
-  put "/MasterData(*other)" => "master_data#update", :defaults => { :format => :json}
-  delete "/MasterData(*other)" => "master_data#destroy", :defaults => { :format => :json}
+  post '/*other', to: 'master#create', :defaults => {:format => :json}
+  patch "/*other", to: "master#update", :defaults => { :format => :json}
+  put "/*other", to: "master#update", :defaults => { :format => :json}
+  delete "/*other", to: 'master#destroy', :defaults => {:format => :json}
 
   mount OData::Engine, :at => "/"
 
