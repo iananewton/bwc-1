@@ -1,5 +1,5 @@
 class MasterDataController < ApplicationController
-  before_action :set_master, only: [:create, :update, :destroy]
+
   skip_before_action :verify_authenticity_token
 
   # GET /master_data
@@ -68,10 +68,7 @@ class MasterDataController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_master
-      if 
-      @master_datum = MasterDatum.find(params[:id])
-    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def master_datum_params
