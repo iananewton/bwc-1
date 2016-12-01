@@ -1,7 +1,6 @@
 class CreateTransactions < ActiveRecord::Migration
   def change
     create_table :transactions do |t|
-      t.datetime :TrDateTime
       t.text :TrUser
       t.integer :DepositID
       t.integer :WithdrawalID
