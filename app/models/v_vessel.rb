@@ -1,3 +1,3 @@
 class VVessel < ActiveRecord::Base
-  table_name = 'v_vessels'
+  self.primary_key = "id"
 end

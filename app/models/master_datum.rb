@@ -1,8 +1,8 @@
 class MasterDatum < ActiveRecord::Base
 
-  belongs_to :MDType, foreign_key: "MDType", class_name: "MasterDataType"
-
   belongs_to :MDSubtype, foreign_key: "MDSubtype", class_name: "MasterDataSubtype"
+
+  has_one :MDType, :through => :MDSubtype
 
   belongs_to :Vessel, foreign_key: "Vessel", class_name: "Vessel"
 
@@ -12,8 +12,8 @@ class MasterDatum < ActiveRecord::Base
 
   has_many :Logs, foreign_key: "MasterDataID", class_name: "Log"
 
-  # has_and_belongs_to_many :transactions, :join_table => :joins, foreign_key: "transaction_id"
+  has_many :VTransactions, foreign_key: "MasterData_id", class_name: "VTransaction"
 
-
+  has_many :Transactions, through: :VTransactions
 
 end

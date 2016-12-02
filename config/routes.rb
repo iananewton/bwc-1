@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   put "/*other", to: "master#update", :defaults => { :format => :json}
   delete "/*other", to: 'master#destroy', :defaults => {:format => :json}
 
+  # get '/VTransactions(*other)/*tail', to: redirect { |path_params, req| "VTransactions?$filter=id eq #{path_params[:other][1..-2]}/#{path_params[:tail]}"}
+
   mount OData::Engine, :at => "/"
 
 end

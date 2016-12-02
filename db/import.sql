@@ -136,10 +136,10 @@ INSERT INTO "input_types" ("id", "MDType", "InputTypeDescription","created_at","
 -- Dumping data for table "master_data"
 --
 
-INSERT INTO "master_data" ("id", "MDDateTime", "ReferenceID", "MDType", "MDSubtype", "Vessel", "ClearingStatus", "ClearingDateTime","created_at","updated_at") VALUES
-(5, '2016-11-01 00:00:00', 'TEST', 1, 1, NULL, NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01'),
-(6, '2016-11-03 00:00:00', NULL, 1, 1, NULL, NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01'),
-(7, NULL, NULL, 1, 1, NULL, NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01');
+INSERT INTO "master_data" ("id", "MDDateTime", "ReferenceID", "MDSubtype", "Vessel", "ClearingStatus", "ClearingDateTime","created_at","updated_at") VALUES
+(5, '2016-11-01 00:00:00', 'TEST', 1, NULL, NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01'),
+(6, '2016-11-03 00:00:00', NULL, 1, NULL, NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01'),
+(7, NULL, NULL, 1, NULL, NULL, NULL,'1970-01-01 00:00:01','1970-01-01 00:00:01');
 
 -- --------------------------------------------------------
 

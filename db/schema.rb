@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130234910) do
+ActiveRecord::Schema.define(version: 20161201223131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20161130234910) do
   create_table "master_data", force: :cascade do |t|
     t.datetime "MDDateTime"
     t.string   "ReferenceID"
-    t.integer  "MDType"
     t.integer  "MDSubtype"
     t.integer  "Vessel"
     t.integer  "ClearingStatus"
@@ -123,7 +122,6 @@ ActiveRecord::Schema.define(version: 20161130234910) do
 SELECT md.id,
     md."MDDateTime",
     md."ReferenceID",
-    md."MDType",
     md."MDSubtype",
     md."Vessel",
     md."ClearingStatus",
@@ -131,9 +129,19 @@ SELECT md.id,
     mdtype."MDTypeName",
     c."MDSubtypeName"
    FROM ((master_data md
-     JOIN master_data_types mdtype ON ((md."MDType" = mdtype.id)))
      JOIN master_data_subtypes c ON ((md."MDSubtype" = c.id)))
+     JOIN master_data_types mdtype ON ((c."MDType" = mdtype.id)))
   END_VIEW_V_MASTER_DATA
+
+  create_view "v_transactions", <<-'END_VIEW_V_TRANSACTIONS', :force => true
+SELECT a.id,
+    a."DepositID" AS "MasterData_id"
+   FROM transactions a
+UNION
+ SELECT b.id,
+    b."WithdrawalID" AS "MasterData_id"
+   FROM transactions b
+  END_VIEW_V_TRANSACTIONS
 
   create_table "vessel_types", force: :cascade do |t|
     t.text     "VesselTypeName"
