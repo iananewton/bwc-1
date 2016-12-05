@@ -1,5 +1,5 @@
 class LogRecordType < ActiveRecord::Base
-  belongs_to :MDType, foreign_key: "MDType", class_name: "MasterDataType"
+  belongs_to :MDType, foreign_key: "MDTypeId", class_name: "MasterDataType"
 
-  has_many :Logs, foreign_key: "LogType", class_name: "Log"
+  has_many :Logs, foreign_key: "LogTypeId", class_name: "Log"
 end

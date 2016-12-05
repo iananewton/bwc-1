@@ -1,7 +1,7 @@
 class CreateNotes < ActiveRecord::Migration
   def change
     create_table :notes do |t|
-      t.integer :MasterDataID
+      t.integer :MasterDataId
       t.string :User
       t.text :NotesObject
 

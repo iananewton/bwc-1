@@ -1,4 +1,4 @@
 class SpiritClass < ActiveRecord::Base
 
-    has_many :MasterDataSubtypes, foreign_key: "SpiritClass", class_name: "MasterDataSubtype"
+    has_many :MasterDataSubtypes, foreign_key: "SpiritClassId", class_name: "MasterDataSubtype"
 end

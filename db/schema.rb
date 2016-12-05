@@ -17,37 +17,37 @@ ActiveRecord::Schema.define(version: 20161201223131) do
   enable_extension "plpgsql"
 
   create_table "input_items", force: :cascade do |t|
-    t.integer  "InputType"
+    t.integer  "InputTypeId"
     t.text     "InputItemName"
     t.datetime "created_at",    :null=>false
     t.datetime "updated_at",    :null=>false
   end
 
   create_table "input_types", force: :cascade do |t|
-    t.integer  "MDType"
+    t.integer  "MDTypeId"
     t.text     "InputTypeDescription"
     t.datetime "created_at",           :null=>false
     t.datetime "updated_at",           :null=>false
   end
 
   create_table "inputs", force: :cascade do |t|
-    t.integer  "MasterDataID"
-    t.integer  "InputItem"
+    t.integer  "MasterDataId"
+    t.integer  "InputItemId"
     t.float    "Quantity"
     t.datetime "created_at",   :null=>false
     t.datetime "updated_at",   :null=>false
   end
 
   create_table "log_record_types", force: :cascade do |t|
-    t.integer  "MDType"
+    t.integer  "MDTypeId"
     t.text     "LRTypeDescription"
     t.datetime "created_at",        :null=>false
     t.datetime "updated_at",        :null=>false
   end
 
   create_table "logs", force: :cascade do |t|
-    t.integer  "MasterDataID"
-    t.integer  "LogType"
+    t.integer  "MasterDataId"
+    t.integer  "LogTypeId"
     t.datetime "LDateTime"
     t.float    "LpH"
     t.float    "LTemp"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20161201223131) do
   create_table "master_data", force: :cascade do |t|
     t.datetime "MDDateTime"
     t.string   "ReferenceID"
-    t.integer  "MDSubtype"
-    t.integer  "Vessel"
+    t.integer  "MDSubtypeId"
+    t.integer  "VesselId"
     t.integer  "ClearingStatus"
     t.datetime "ClearingDateTime"
     t.datetime "created_at",       :null=>false
@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 20161201223131) do
   end
 
   create_table "master_data_subtypes", force: :cascade do |t|
-    t.integer  "MDType"
+    t.integer  "MDTypeId"
     t.text     "MDSubtypeName"
-    t.integer  "SpiritClass"
+    t.integer  "SpiritClassId"
     t.integer  "UPC"
     t.datetime "created_at",    :null=>false
     t.datetime "updated_at",    :null=>false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20161201223131) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.integer  "MasterDataID"
+    t.integer  "MasterDataId"
     t.string   "User"
     t.text     "NotesObject"
     t.datetime "created_at",   :null=>false
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(version: 20161201223131) do
 
   create_table "transactions", force: :cascade do |t|
     t.text     "TrUser"
-    t.integer  "DepositID"
-    t.integer  "WithdrawalID"
+    t.integer  "DepositId"
+    t.integer  "WithdrawalId"
     t.datetime "PostingDate"
     t.float    "AppProof"
     t.float    "Temp"
@@ -122,24 +122,24 @@ ActiveRecord::Schema.define(version: 20161201223131) do
 SELECT md.id,
     md."MDDateTime",
     md."ReferenceID",
-    md."MDSubtype",
-    md."Vessel",
+    md."MDSubtypeId" AS "MDSubtype",
+    md."VesselId" AS "Vessel",
     md."ClearingStatus",
     md."ClearingDateTime",
     mdtype."MDTypeName",
     c."MDSubtypeName"
    FROM ((master_data md
-     JOIN master_data_subtypes c ON ((md."MDSubtype" = c.id)))
-     JOIN master_data_types mdtype ON ((c."MDType" = mdtype.id)))
+     JOIN master_data_subtypes c ON ((md."MDSubtypeId" = c.id)))
+     JOIN master_data_types mdtype ON ((c."MDTypeId" = mdtype.id)))
   END_VIEW_V_MASTER_DATA
 
   create_view "v_transactions", <<-'END_VIEW_V_TRANSACTIONS', :force => true
 SELECT a.id,
-    a."DepositID" AS "MasterData_id"
+    a."DepositId" AS "MasterDataId"
    FROM transactions a
 UNION
  SELECT b.id,
-    b."WithdrawalID" AS "MasterData_id"
+    b."WithdrawalId" AS "MasterDataId"
    FROM transactions b
   END_VIEW_V_TRANSACTIONS
 
@@ -150,7 +150,7 @@ UNION
   end
 
   create_table "vessels", force: :cascade do |t|
-    t.integer  "VesselType"
+    t.integer  "VesselTypeId"
     t.string   "VesselName"
     t.datetime "ReceivedOnDate"
     t.float    "Capacity"
@@ -163,7 +163,7 @@ UNION
 
   create_view "v_vessels", <<-'END_VIEW_V_VESSELS', :force => true
 SELECT a.id,
-    a."VesselType",
+    a."VesselTypeId" AS "VesselType",
     a."VesselName",
     a."ReceivedOnDate",
     a."Capacity",
@@ -172,7 +172,7 @@ SELECT a.id,
     a."Retired",
     b."VesselTypeName"
    FROM (vessels a
-     LEFT JOIN vessel_types b ON ((a."VesselType" = b.id)))
+     LEFT JOIN vessel_types b ON ((a."VesselTypeId" = b.id)))
   END_VIEW_V_VESSELS
 
 end

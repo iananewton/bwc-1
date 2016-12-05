@@ -1,9 +1,9 @@
 class CreateMasterDataSubtypes < ActiveRecord::Migration
   def change
     create_table :master_data_subtypes do |t|
-      t.integer :MDType
+      t.integer :MDTypeId
       t.text :MDSubtypeName
-      t.integer :SpiritClass
+      t.integer :SpiritClassId
       t.integer :UPC
 
       t.timestamps null: false

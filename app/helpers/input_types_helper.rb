@@ -1,2 +1,0 @@
-module InputTypesHelper
-end

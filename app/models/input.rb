@@ -1,6 +1,6 @@
 class Input < ActiveRecord::Base
 
-  belongs_to :MasterDatum, foreign_key: "MasterDataID", class_name: "MasterDatum"
+  belongs_to :MasterDatum, foreign_key: "MasterDataId", class_name: "MasterDatum"
 
-  belongs_to :InputItem, foreign_key: "InputItem", class_name: "InputItem"
+  belongs_to :InputItem, foreign_key: "InputItemId", class_name: "InputItem"
 end

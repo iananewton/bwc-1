@@ -1,2 +1,0 @@
-json.extract! log, :id, :MasterDataID, :LogType, :LDateTime, :LpH, :LTemp, :LGravity, :LBrix, :LAppProof, :LActProof, :LWeight, :LPG, :LGallons, :created_at, :updated_at
-json.url log_url(log, format: :json)

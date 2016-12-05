@@ -1,8 +1,8 @@
 class CreateLogs < ActiveRecord::Migration
   def change
     create_table :logs do |t|
-      t.integer :MasterDataID
-      t.integer :LogType
+      t.integer :MasterDataId
+      t.integer :LogTypeId
       t.datetime :LDateTime
       t.float :LpH
       t.float :LTemp

@@ -1,6 +1,6 @@
 class Note < ActiveRecord::Base
 
-  belongs_to :MasterDatum, foreign_key: "MDType", class_name: "MasterDataType"
+  belongs_to :MasterDatum, foreign_key: "MDTypeId", class_name: "MasterDataType"
 
 
 end

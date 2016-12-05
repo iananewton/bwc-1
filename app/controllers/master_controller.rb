@@ -49,8 +49,9 @@ class MasterController < ApplicationController
 
     def master_params
       model = @class.singularize
-      array_args = model.constantize.column_names.map {|x| x.to_sym}
-      params.require(model.underscore.to_sym).permit(*array_args)
+      @array_args = model.constantize.column_names.map {|x| x.to_sym}
+      params.permit(*@array_args)
+      # .require(model.underscore.to_sym)
     end
 
 end

@@ -1,5 +1,5 @@
 class InputType < ActiveRecord::Base
-  has_many :InputItems, foreign_key: "InputType", class_name: "InputItem"
+  has_many :InputItems, foreign_key: "InputTypeId", class_name: "InputItem"
 
-  belongs_to :MDType, foreign_key: "MDType", class_name: "MasterDataType"
+  belongs_to :MDType, foreign_key: "MDTypeId", class_name: "MasterDataType"
 end

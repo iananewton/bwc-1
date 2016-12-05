@@ -1,1 +1,0 @@
-json.partial! "master_data/master_datum", master_datum: @master_datum

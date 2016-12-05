@@ -1,1 +1,0 @@
-json.array! @master_data_subtypes, partial: 'master_data_subtypes/master_data_subtype', as: :master_data_subtype

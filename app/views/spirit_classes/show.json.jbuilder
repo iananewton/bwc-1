@@ -1,1 +1,0 @@
-json.partial! "spirit_classes/spirit_class", spirit_class: @spirit_class

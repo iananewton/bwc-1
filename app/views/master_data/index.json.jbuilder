@@ -1,1 +1,0 @@
-json.array! @master_data, partial: 'master_data/master_datum', as: :master_datum

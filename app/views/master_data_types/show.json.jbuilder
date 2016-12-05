@@ -1,1 +1,0 @@
-json.partial! "master_data_types/master_data_type", master_data_type: @master_data_type

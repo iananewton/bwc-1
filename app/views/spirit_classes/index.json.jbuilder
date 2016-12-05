@@ -1,1 +1,0 @@
-json.array! @spirit_classes, partial: 'spirit_classes/spirit_class', as: :spirit_class
