@@ -122,8 +122,8 @@ ActiveRecord::Schema.define(version: 20161201223131) do
 SELECT md.id,
     md."MDDateTime",
     md."ReferenceID",
-    md."MDSubtypeId" AS "MDSubtype",
-    md."VesselId" AS "Vessel",
+    md."MDSubtypeId",
+    md."VesselId",
     md."ClearingStatus",
     md."ClearingDateTime",
     mdtype."MDTypeName",
@@ -163,7 +163,7 @@ UNION
 
   create_view "v_vessels", <<-'END_VIEW_V_VESSELS', :force => true
 SELECT a.id,
-    a."VesselTypeId" AS "VesselType",
+    a."VesselTypeId",
     a."VesselName",
     a."ReceivedOnDate",
     a."Capacity",
