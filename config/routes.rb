@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :input_items
   resources :master_data
 
+  match '/$metadata', to: 'master#options', via: [:options], :defaults => {:format => :json}
+
   post '/*other', to: 'master#create', :defaults => {:format => :json}
   patch "/*other", to: "master#update", :defaults => { :format => :json}
   put "/*other", to: "master#update", :defaults => { :format => :json}

@@ -36,6 +36,13 @@ class MasterController < ApplicationController
     end
   end
 
+  def options
+    respond_to do |format|
+      format.json {render json: "", status: :ok }
+
+    end
+  end
+
   private
 
     def set_master
