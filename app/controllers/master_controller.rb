@@ -2,6 +2,32 @@ class MasterController < ApplicationController
   before_action :set_master, only: [:update, :destroy, :create]
   skip_before_action :verify_authenticity_token
 
+#### COORS ###
+  before_filter :cors_preflight_check
+  after_filter :cors_set_access_control_headers
+
+  def cors_set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
+    headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
+    headers['Access-Control-Max-Age'] = "1728000"
+  end
+
+  def cors_preflight_check
+    if request.method == 'OPTIONS'
+      headers['Access-Control-Allow-Origin'] = '*'
+      headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
+      headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version, Token'
+      headers['Access-Control-Max-Age'] = '1728000'
+
+      render :text => '', :content_type => 'text/plain'
+    end
+  end
+
+  def options
+    render json: { success: true }
+  end
+#######################
 
   def create
     @master = params[:other].singularize.constantize.new(master_params)
@@ -33,13 +59,6 @@ class MasterController < ApplicationController
     respond_to do |format|
       format.html { redirect_to master_url, notice: @master.class.to_s + 'was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-
-  def options
-    respond_to do |format|
-      format.json {render json: "", status: :ok }
-
     end
   end
 
