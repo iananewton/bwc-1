@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/sebastiankliem/odata_server.git
-  revision: 6fb89ac914c40dc3ebd7d954d10025ab4728734b
+  remote: git://github.com/davidjwatts/odata_server.git
+  revision: c8a65dbf1fea323e229d8baeba4bc7dd41d2f54d
   specs:
     odata_server (0.0.18)
       rails (>= 4.0)

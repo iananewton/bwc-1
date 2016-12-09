@@ -9,7 +9,7 @@ class MasterController < ApplicationController
   def cors_set_access_control_headers
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
-    headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token, MaxDataServiceVersion'
+    headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
     headers['Access-Control-Max-Age'] = "1728000"
   end
 
@@ -17,7 +17,7 @@ class MasterController < ApplicationController
     if request.method == 'OPTIONS'
       headers['Access-Control-Allow-Origin'] = '*'
       headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
-      headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version, Token, MaxDataServiceVersion'
+      headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version, Token'
       headers['Access-Control-Max-Age'] = '1728000'
 
       render :text => '', :content_type => 'text/plain'
@@ -49,22 +49,18 @@ class MasterController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @master.update(master_params)
-        format.html { redirect_to @master, notice: @master.class.to_s + 'was successfully updated.' }
-        format.json { render :show, status: :ok, location: @master }
-      else
-        format.html { render :edit }
-        format.json { render json: @master.errors, status: :unprocessable_entity }
-      end
+    if @master.update(master_params)
+      render :show, status: :ok
+    else
+      render json: @master.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @master.destroy
-    respond_to do |format|
-      format.html { redirect_to master_url, notice: @master.class.to_s + 'was successfully destroyed.' }
-      format.json { head :no_content }
+    if @master.destroy
+      render json: ""
+    else
+      render json: @master.errors
     end
   end
 
