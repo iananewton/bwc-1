@@ -118,19 +118,43 @@ ActiveRecord::Schema.define(version: 20161201223131) do
     t.datetime "updated_at",   :null=>false
   end
 
+  create_table "vessels", force: :cascade do |t|
+    t.integer  "VesselTypeId"
+    t.string   "VesselName"
+    t.datetime "ReceivedOnDate"
+    t.float    "Capacity"
+    t.integer  "New"
+    t.text     "Material"
+    t.integer  "Retired"
+    t.datetime "created_at",     :null=>false
+    t.datetime "updated_at",     :null=>false
+  end
+
   create_view "v_master_data", <<-'END_VIEW_V_MASTER_DATA', :force => true
 SELECT md.id,
     md."MDDateTime",
     md."ReferenceID",
     md."MDSubtypeId",
     md."VesselId",
+    v."VesselName",
     md."ClearingStatus",
     md."ClearingDateTime",
     mdtype."MDTypeName",
-    c."MDSubtypeName"
-   FROM ((master_data md
+    c."MDSubtypeName",
+    tr."PG",
+    tr."Gallons",
+    tr."Bottles"
+   FROM (((((master_data md
      JOIN master_data_subtypes c ON ((md."MDSubtypeId" = c.id)))
      JOIN master_data_types mdtype ON ((c."MDTypeId" = mdtype.id)))
+     LEFT JOIN transactions t ON ((md.id = t."DepositId")))
+     LEFT JOIN vessels v ON ((md."VesselId" = v.id)))
+     LEFT JOIN ( SELECT transactions."DepositId",
+            sum(transactions."PG") AS "PG",
+            sum(transactions."Gallons") AS "Gallons",
+            sum(transactions."Bottles") AS "Bottles"
+           FROM transactions
+          GROUP BY transactions."DepositId") tr ON ((md.id = tr."DepositId")))
   END_VIEW_V_MASTER_DATA
 
   create_view "v_transactions", <<-'END_VIEW_V_TRANSACTIONS', :force => true
@@ -145,18 +169,6 @@ UNION
 
   create_table "vessel_types", force: :cascade do |t|
     t.text     "VesselTypeName"
-    t.datetime "created_at",     :null=>false
-    t.datetime "updated_at",     :null=>false
-  end
-
-  create_table "vessels", force: :cascade do |t|
-    t.integer  "VesselTypeId"
-    t.string   "VesselName"
-    t.datetime "ReceivedOnDate"
-    t.float    "Capacity"
-    t.integer  "New"
-    t.text     "Material"
-    t.integer  "Retired"
     t.datetime "created_at",     :null=>false
     t.datetime "updated_at",     :null=>false
   end
