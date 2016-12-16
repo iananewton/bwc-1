@@ -7,6 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+### Uncomment this if you want the seed function to
+### first delete all current records, then seed. 
+
+  # ActiveRecord::Base.connection.tables.each do |t|
+  #   model = t.singularize.camelcase.constantize
+  #   model.delete_all
+  # end
 
 
 
