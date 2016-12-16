@@ -31,6 +31,7 @@ class MasterController < ApplicationController
 #######################
 
   def create
+  
     if @master.save
       render :show, status: :created
     else
@@ -81,6 +82,14 @@ class MasterController < ApplicationController
       @array_args = model.constantize.column_names.map {|x| x.to_sym}
       params.permit(*@array_args)
       # .require(model.underscore.to_sym)
+    end
+
+    def to_outgoing_date
+
+    end
+
+    def to_incoming_date
+
     end
 
     # def check_remote_host

@@ -8,11 +8,13 @@
 
 
 ### Uncomment this if you want the seed function to
-### first delete all current records, then seed. 
+### first delete all current records, then seed.
 
   # ActiveRecord::Base.connection.tables.each do |t|
-  #   model = t.singularize.camelcase.constantize
-  #   model.delete_all
+  #   unless t == "schema_migrations"
+  #     model = t.singularize.camelcase.constantize
+  #     model.delete_all
+  #   end
   # end
 
 
