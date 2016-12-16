@@ -31,7 +31,7 @@ class MasterController < ApplicationController
 #######################
 
   def create
-  
+
     if @master.save
       render :show, status: :created
     else
@@ -80,16 +80,14 @@ class MasterController < ApplicationController
     def master_params
       model = @class.singularize
       @array_args = model.constantize.column_names.map {|x| x.to_sym}
-      params.permit(*@array_args)
-      # .require(model.underscore.to_sym)
-    end
-
-    def to_outgoing_date
-
-    end
-
-    def to_incoming_date
-
+      hash = params.permit(*@array_args)
+      hash.each do |key, value|
+        if value.is_a?(String) && value[0..4] == "/Date"
+          secs = value[6..-3].to_i/1000
+          hash[key] = DateTime.strptime(secs.to_s, '%s')
+        end
+      end
+      hash
     end
 
     # def check_remote_host
