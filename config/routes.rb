@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   put "/*other", to: "master#update", :defaults => { :format => :json}
   delete "/*other", to: 'master#destroy', :defaults => {:format => :json}
 
+
+
   mount OData::Engine, :at => "/"
 
 end

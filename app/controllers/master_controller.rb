@@ -1,5 +1,6 @@
 class MasterController < ApplicationController
   before_action :set_master, only: [:update, :destroy, :create]
+  # before_action :check_remote_host, only: [:update, :destroy, :create]
   skip_before_action :verify_authenticity_token
 
 #### COORS ###
@@ -81,5 +82,11 @@ class MasterController < ApplicationController
       params.permit(*@array_args)
       # .require(model.underscore.to_sym)
     end
+
+    # def check_remote_host
+    #   unless env["REMOTE_ADDR"] == "<put ip address of front-end here>"
+    #     render json: "IP Address not Authorized"
+    #   end
+    # end
 
 end
