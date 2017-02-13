@@ -17,37 +17,37 @@ ActiveRecord::Schema.define(version: 20161201223131) do
   enable_extension "plpgsql"
 
   create_table "input_items", force: :cascade do |t|
-    t.integer  "InputTypeId"
+    t.integer  "InputTypeId",   :default=>0
     t.text     "InputItemName"
     t.datetime "created_at",    :null=>false
     t.datetime "updated_at",    :null=>false
   end
 
   create_table "input_types", force: :cascade do |t|
-    t.integer  "MDTypeId"
+    t.integer  "MDTypeId",             :default=>0
     t.text     "InputTypeDescription"
     t.datetime "created_at",           :null=>false
     t.datetime "updated_at",           :null=>false
   end
 
   create_table "inputs", force: :cascade do |t|
-    t.integer  "MasterDataId"
-    t.integer  "InputItemId"
+    t.integer  "MasterDataId", :default=>0
+    t.integer  "InputItemId",  :default=>0
     t.float    "Quantity"
     t.datetime "created_at",   :null=>false
     t.datetime "updated_at",   :null=>false
   end
 
   create_table "log_record_types", force: :cascade do |t|
-    t.integer  "MDTypeId"
+    t.integer  "MDTypeId",          :default=>0
     t.text     "LRTypeDescription"
     t.datetime "created_at",        :null=>false
     t.datetime "updated_at",        :null=>false
   end
 
   create_table "logs", force: :cascade do |t|
-    t.integer  "MasterDataId"
-    t.integer  "LogTypeId"
+    t.integer  "MasterDataId", :default=>0
+    t.integer  "LogTypeId",    :default=>0
     t.datetime "LDateTime"
     t.float    "LpH"
     t.float    "LTemp"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20161201223131) do
   create_table "master_data", force: :cascade do |t|
     t.datetime "MDDateTime"
     t.string   "ReferenceID"
-    t.integer  "MDSubtypeId"
-    t.integer  "VesselId"
+    t.integer  "MDSubtypeId",      :default=>0
+    t.integer  "VesselId",         :default=>0
     t.integer  "ClearingStatus"
     t.datetime "ClearingDateTime"
     t.datetime "created_at",       :null=>false
@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 20161201223131) do
   end
 
   create_table "master_data_subtypes", force: :cascade do |t|
-    t.integer  "MDTypeId"
+    t.integer  "MDTypeId",      :default=>0
     t.text     "MDSubtypeName"
-    t.integer  "SpiritClassId"
+    t.integer  "SpiritClassId", :default=>0
     t.integer  "UPC"
     t.datetime "created_at",    :null=>false
     t.datetime "updated_at",    :null=>false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20161201223131) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.integer  "MasterDataId"
+    t.integer  "MasterDataId", :default=>0
     t.string   "User"
     t.text     "NotesObject"
     t.datetime "created_at",   :null=>false
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(version: 20161201223131) do
 
   create_table "transactions", force: :cascade do |t|
     t.text     "TrUser"
-    t.integer  "DepositId"
-    t.integer  "WithdrawalId"
+    t.integer  "DepositId",    :default=>0
+    t.integer  "WithdrawalId", :default=>0
     t.datetime "PostingDate"
     t.float    "AppProof"
     t.float    "Temp"
@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 20161201223131) do
   end
 
   create_table "vessels", force: :cascade do |t|
-    t.integer  "VesselTypeId"
+    t.integer  "VesselTypeId",   :default=>0
     t.string   "VesselName"
     t.datetime "ReceivedOnDate"
     t.float    "Capacity"

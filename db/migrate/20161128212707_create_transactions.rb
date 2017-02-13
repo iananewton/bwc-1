@@ -2,8 +2,8 @@ class CreateTransactions < ActiveRecord::Migration
   def change
     create_table :transactions do |t|
       t.text :TrUser
-      t.integer :DepositId
-      t.integer :WithdrawalId
+      t.integer :DepositId, :default => 0
+      t.integer :WithdrawalId, :default => 0
       t.datetime :PostingDate
       t.float :AppProof
       t.float :Temp

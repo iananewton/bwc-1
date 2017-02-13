@@ -1,7 +1,7 @@
 class CreateVessels < ActiveRecord::Migration
   def change
     create_table :vessels do |t|
-      t.integer :VesselTypeId
+      t.integer :VesselTypeId, :default => 0
       t.string :VesselName
       t.datetime :ReceivedOnDate
       t.float :Capacity

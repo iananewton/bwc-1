@@ -3,8 +3,8 @@ class CreateMasterData < ActiveRecord::Migration
     create_table :master_data do |t|
       t.datetime :MDDateTime
       t.string :ReferenceID
-      t.integer :MDSubtypeId
-      t.integer :VesselId
+      t.integer :MDSubtypeId, :default => 0
+      t.integer :VesselId, :default => 0
       t.integer :ClearingStatus
       t.datetime :ClearingDateTime
 
