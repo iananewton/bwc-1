@@ -31,6 +31,7 @@
 --
 
 INSERT INTO "input_items" ("id", "InputTypeId", "InputItemName","created_at","updated_at") VALUES
+(0, 1, 'Default', '1970-01-01 00:00:01', '1970-01-01 00:00:01' )
 (1, 1, 'Apple Juice', '1970-01-01 00:00:01', '1970-01-01 00:00:01'),
 (2, 1, 'Apple Mash','1970-01-01 00:00:01','1970-01-01 00:00:01'),
 (3, 1, 'Apple Pomace','1970-01-01 00:00:01','1970-01-01 00:00:01'),
