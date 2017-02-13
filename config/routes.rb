@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   match '/*other', to: 'master#options', via: [:options], :defaults => {:format => :json}
 
   # resources :vessel_types
